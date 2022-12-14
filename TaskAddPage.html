@@ -11,7 +11,7 @@
     <div id="addNote">
         <div>
             <label for="Heading">Heading : </label>
-            <input type="text" id="Heading" name="head" v-model="List_[0].title" placeholder="Give an Awesome Label">
+            <input type="text" id="Heading" name="head" v-model="title" placeholder="Give an Awesome Label">
             <!-- <button style="margin: 15px"  @click="head_fn" >Save Heading</button> -->
         </div>
        <br><br>
@@ -29,20 +29,21 @@
         <br>
 
         <ul>
-            <li v-for="(value,key) in List_[0].task_">
+            <li v-for="(value,key) in task_">
                 <span>{{ value }}</span> <button @click="remove_(key)">  x</button>
                 <br><br>
             </li>
           </ul>
           <br>
-        <button id="saveList" v-if="List_[0].title" @click="">Save</button>
-        <p>Heading : {{ List_[0].title }}</p>
+        <button id="saveList" v-if="title" @click="save_to_list">Save</button>
+        <p>Heading : {{ title }}</p>
         <p>Task : {{task_input_val}}</p>
-        <p>Complete Tasks : {{List_[0].task_}}</p>
+        <p>Complete Tasks : {{task_}}</p>
+
+        <button @click="show_list">View Tasks</button>
 
     </div>
    
     <script src="app.js"></script>
-    <link rel = "stylesheet" type="text/css" href = "style.css" />
 </body>
 </html>
