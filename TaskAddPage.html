@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO App</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body >
+
+    <div id="addNote">
+        <div>
+            <label for="Heading">Heading : </label>
+            <input type="text" id="Heading" name="head" v-model="head_input_val" placeholder="Give an Awesome Label">
+            <!-- <button style="margin: 15px"  @click="head_fn" >Save Heading</button> -->
+        </div>
+       <br><br>
+
+      
+        <div>
+            <label for="Tasks"> Tasks : </label>
+            <input type="text" id="Tasks" name="task" v-model="task_input_val" placeholder="Enter Task">
+            <button style="margin: 15px" @click="addTask">Add Task</button>
+            <div id="task_view">
+
+            </div>
+        </div>
+        
+        <br>
+
+        <ul>
+            <li v-for="(value,key) in task_">
+                <span>{{ value }}</span> <button @click="remove_(key)">  x</button>
+                <br><br>
+            </li>
+          </ul>
+          <br>
+        <button id="saveList" v-if="head_input_val" @click="">Save</button>
+        <p>Heading : {{ head_input_val }}</p>
+        <p>Task : {{task_input_val}}</p>
+        <p>Complete Tasks : {{task_}}</p>
+
+    </div>
+   
+    <script src="app.js"></script>
+    <link rel = "stylesheet" type="text/css" href = "style.css" />
+</body>
+</html>
